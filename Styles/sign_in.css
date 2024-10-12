@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #1b7a6a2d;
 }
 
 
@@ -90,7 +90,7 @@ body {
 .auth-box {
     background-color: white;
     padding: 20px;
-    border: 1px solid #ddd;
+    border: 1.5px solid #1b7a6a;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;

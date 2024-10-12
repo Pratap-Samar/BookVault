@@ -5,7 +5,7 @@
 }
 
 body {
-    background-image: url("../Assets/about.jpg");
+    background-image: url("../Assets/about.png");
     background-size: cover;
     font-family: Arial, sans-serif;
 }
@@ -120,6 +120,7 @@ body {
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.523);
     border-radius: 10px;
+    border: 2.5px solid black;
 }
 
 .abouttext h3 {
