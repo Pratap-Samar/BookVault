@@ -19,7 +19,7 @@ signInForm.addEventListener('submit', async (event) => {
     const password = document.getElementById('sign-in-password').value;
 
     try {
-        const response = await fetch('/signin', {
+        const response = await fetch('http://localhost:3000/signin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -29,7 +29,10 @@ signInForm.addEventListener('submit', async (event) => {
 
         const data = await response.json();
         if (data.success) {
-            window.location.href = "dashboard.html"; // Redirect to dashboard
+            // Store user sign-in status in localStorage
+            localStorage.setItem('user', JSON.stringify({ email, name: data.name })); // Save user info
+
+            window.location.href = "/index.html"; // Redirect to homepage after successful login
         } else {
             alert(data.message); // Show error message
         }
@@ -47,7 +50,7 @@ signUpForm.addEventListener('submit', async (event) => {
     const password = document.getElementById('sign-up-password').value;
 
     try {
-        const response = await fetch('/signup', {
+        const response = await fetch('http://localhost:3000/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -67,8 +70,8 @@ signUpForm.addEventListener('submit', async (event) => {
     }
 });
 
-//Nav bar
+// Nav bar toggle for mobile menu
 function toggleMenu() {
-  const navMenu = document.getElementById('nav-menu');
-  navMenu.classList.toggle('active');
+    const navMenu = document.getElementById('nav-menu');
+    navMenu.classList.toggle('active');
 }
