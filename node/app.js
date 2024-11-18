@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 // File paths for the data
-const dataPath = path.join(__dirname, 'data.json');
+const dataPath = path.join(__dirname, 'node', 'data.json');
 const usersDataPath = path.join(__dirname, 'user_data.json');
 
 // Get books data
