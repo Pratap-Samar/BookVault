@@ -3,13 +3,15 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const app = express();
-const PORT = 3000;
+
+// Use the PORT provided by Render, or fallback to 3000 for local development
+const PORT = process.env.PORT || 3000;
 
 // Middleware to parse JSON bodies
 app.use(express.json());
 app.use(cors());
 
-// Load book data from data.json
+// File paths for the data
 const dataPath = path.join(__dirname, 'data.json');
 const usersDataPath = path.join(__dirname, 'user_data.json');
 
@@ -51,16 +53,13 @@ app.post('/signin', (req, res) => {
     });
 });
 
-
+// User Data Endpoint
 app.get('/user_data', (req, res) => {
     console.log('Request received for /user_data');
     fs.readFile(usersDataPath, 'utf8', (err, data) => {
         if (err) {
             console.error('Error reading user_data.json:', err);
             return res.status(500).send('Error reading user data');
-        }
-        else {
-            console.log('File Content:', data); // Log file content
         }
         try {
             const parsedData = JSON.parse(data);
@@ -72,7 +71,7 @@ app.get('/user_data', (req, res) => {
     });
 });
 
-// Start the server
+// Start the server on the dynamic port
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
