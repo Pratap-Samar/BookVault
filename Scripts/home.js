@@ -3,7 +3,7 @@ let allBooks = []; // Store all books globally
 // Function to fetch all books from the server
 async function fetchBooks() {
     try {
-        const response = await fetch('http://localhost:3000/api/books');
+        const response = await fetch('https://bookvault-5ask.onrender.com/api/books');
         allBooks = await response.json(); // Store the fetched books
         displayBooks(allBooks); // Display all books initially
     } catch (error) {
