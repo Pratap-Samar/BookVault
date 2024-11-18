@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 
-// File paths for the data
+// File paths for the data (ensure these are correct relative paths)
 const dataPath = path.join(__dirname, 'data.json');
 const usersDataPath = path.join(__dirname, 'user_data.json');
 
@@ -23,7 +23,7 @@ app.get('/api/books', (req, res) => {
             console.error('Error reading data.json:', err);
             return res.status(500).send('Error reading data');
         }
-        res.json(JSON.parse(data));
+        res.json(JSON.parse(data));  // Send the JSON data as response
     });
 });
 
@@ -63,7 +63,7 @@ app.get('/user_data', (req, res) => {
         }
         try {
             const parsedData = JSON.parse(data);
-            res.json(parsedData); // Send the JSON data as a response
+            res.json(parsedData);  // Send the JSON data as a response
         } catch (parseError) {
             console.error('Error parsing user_data.json:', parseError);
             res.status(500).send('Error parsing user data');
@@ -71,7 +71,7 @@ app.get('/user_data', (req, res) => {
     });
 });
 
-// Start the server on the dynamic port
+// Start the server on the dynamic port (for Render)
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on https://bookvault-5ask.onrender.com (PORT: ${PORT})`);
 });
