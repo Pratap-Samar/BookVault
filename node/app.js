@@ -11,13 +11,13 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 
-// File paths for the data (direct path since app.js and data.json are in the same folder)
+// File paths for the data (since both app.js and data.json are in the same folder)
 const dataPath = path.join(__dirname, 'data.json');
 const usersDataPath = path.join(__dirname, 'user_data.json');
 
 // Log paths for debugging
-console.log('Data file path:', dataPath);
-console.log('User data file path:', usersDataPath);
+console.log('Data file path:', dataPath);  // Log the path to data.json
+console.log('User data file path:', usersDataPath);  // Log the path to user_data.json
 
 // Get books data
 app.get('/api/books', (req, res) => {
