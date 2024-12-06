@@ -24,7 +24,7 @@ const createChatLi = (message, className) => {
     return chatLi;
 }
 
-// Function to update "Thinking..." with response
+// Function to update "Thinking..."  
 const updateThinkingMessage = (messageElement) => {
     let dots = 0;
     const interval = setInterval(() => {
