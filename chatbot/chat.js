@@ -24,7 +24,7 @@ const createChatLi = (message, className) => {
     return chatLi;
 }
 
-// Function to update "Thinking..." animation
+// Function to update "Thinking..." with response
 const updateThinkingMessage = (messageElement) => {
     let dots = 0;
     const interval = setInterval(() => {
@@ -32,8 +32,6 @@ const updateThinkingMessage = (messageElement) => {
         messageElement.textContent = "Thinking" + ".".repeat(dots);
     }, 500);
 
-    // Stop the animation after 5 seconds
-    setTimeout(() => clearInterval(interval), 5000);
 }
 
 // Function to generate API response
